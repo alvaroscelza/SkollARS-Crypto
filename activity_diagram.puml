@@ -1,0 +1,41 @@
+@startuml activity_diagram
+    start
+    :Términos y Condiciones;
+    :Entrega de inversión inicial en U$S;
+    :Se registra nueva inversión en planilla de Clientes;
+    :Se envían U$S a plataforma de inversión en el extranjero;
+    if (Vía Swift) then (Sí)
+        :40 U$S comisión por bancos;
+    else (No)
+        :3.5% U$S comisión por Prex;
+    endif
+    :Se compra BTC con los U$S;
+    :Se registra en planilla;
+    note right
+        * Cantidad de Crypto comprada.
+        * Precio de compra.
+        * Fecha.
+    end note
+    :Se invierte la Crypto de forma flexible para aumentar ganancias;
+    :Reportes semanales;
+    note right
+        * Precio Crypto (subida o bajada respecto a compra).
+        * Cantidad Total (comprado + intereses por inversión flexible).
+        * Valor actual.
+        * % TIR al momento.
+        * Nuestra comisión de esta semana (sólo ocurre si esta semana hubieron ganancias).
+        10% sobre la ganancia.
+    end note
+    :Retiros;
+    if (Vía Swift) then (Sí)
+        :40 U$S comisión por bancos;
+    else (No)
+        :Retira a BUSD (Crypto estable 1 a 1 con Dólar) para acumular o reservar;
+        note right
+            Se registra en planilla Clientes
+            * Cantidad.
+            * Fecha.
+        end note
+    endif
+    end
+@enduml
